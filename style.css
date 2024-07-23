@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.33),
+      rgba(0, 0, 0, 0.33)
+    ),
+    url("./images/bgForToDo.jpg");
+  background-size: cover;
+}
+
+.toDoList {
+  min-height: 80%;
+  width: 40%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: #f1e8e0;
+  border-radius: 1em;
+  padding: 1.3em;
+}
+
+.item {
+  padding: 0.55em;
+  margin: 10px 0;
+  font-size: 1em;
+  border: 0.3px solid black;
+  border-radius: 1px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+.todoHead {
+  font-weight: 600;
+  font-size: 2.5em;
+  text-align: center;
+}
+.inputArea,
+button {
+  padding: 0.55em;
+  font-size: 1em;
+  border: 0.3px solid black;
+}
+.inputValue {
+  display: flex;
+  justify-content: space-between;
+}
+.inputArea {
+  flex: 4;
+  border-radius: 5px;
+}
+button {
+  flex: 1;
+  margin-left: 0.5em;
+  cursor: pointer;
+  background-color: #dda15e;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #df8927;
+}
