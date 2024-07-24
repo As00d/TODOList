@@ -7,6 +7,7 @@
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+  color: #000000;
 }
 
 .container {
@@ -20,17 +21,18 @@
       rgba(0, 0, 0, 0.33),
       rgba(0, 0, 0, 0.33)
     ),
-    url("./images/bgForToDo.jpg");
+    url("./images/bg-3.jpg");
   background-size: cover;
 }
 
 .toDoList {
   min-height: 80%;
-  width: 40%;
+  width: 42%;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  background-color: #f1e8e0;
+  background-color: #000000;
+  opacity: 0.7;
   border-radius: 1em;
   padding: 1.3em;
 }
@@ -42,16 +44,17 @@
   border-radius: 1px;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   display: flex;
   justify-content: space-between;
-  color: #985407;
   font-weight: 800;
 }
 .todoHead {
   font-weight: 600;
   font-size: 2.5em;
   text-align: center;
+  color: white;
 }
 .inputArea,
 button {
@@ -81,9 +84,25 @@ button:hover {
   background-color: #df8927;
 }
 .strikeOn {
-text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .strikeOf {
-text-decoration: none;
+  text-decoration: none;
+}
+.percentageRate {
+  font-size: 0.75rem;
+  padding: 0.25rem 0;
+  margin-right: 0.2rem;
+  color: white;
+}
+.progressBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+progress {
+  width: 100%;
+  padding: 0.55rem;
+  color: green;
 }

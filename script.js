@@ -12,12 +12,10 @@ addItem.addEventListener("click", () => {
     listItem.classList.add("item");
     item.prepend(listItem);
 
-    // when task is done
+    // when task is done - bug is detected only the item which is at the top - the first item is selected that gets ticked
     const done = document.querySelector(".done");
     done.addEventListener("click", () => {
-      console.log("Done is clicked");
       const textInput = document.querySelector(".textInput");
-      console.log(textInput);
       if (isTaskDone) {
         textInput.classList.add("strikeOf");
         textInput.classList.remove("strikeOn");
@@ -48,4 +46,6 @@ addItem.addEventListener("click", () => {
  3. add search capability to the added list items - (advance but good to know).
  4. add creation date and time to the to do list item ( to display when this item was added).
  5. when button is clicked without any input element, throw error message input field is empty
+ 6. To add percentage and progress bar - Initially set to 0% and no progress 
+ 7. Add some additional peices of data to do list : todays's date, no. of tasks, a simple quote Get things done, one item at a time. 
 */
