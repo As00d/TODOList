@@ -134,7 +134,7 @@ progress {
     margin-left: 0.5em;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 425px)  and (min-width: 342px){
   .toDoList {
     width: 80%;
   }
@@ -142,7 +142,15 @@ progress {
     margin-left: 0.5em;
   }
 }
-@media screen and (max-width: 345px) and (min-width: 272px) {
+@media screen and (max-width: 351px)  and (min-width: 342px){
+  .toDoList {
+    width: 80%;
+  }
+  button {
+    margin-left: 0em;
+  }
+}
+@media screen and (max-width: 341px) and (min-width: 273px) {
   .toDoList {
     width: 80%;
   }
@@ -153,6 +161,9 @@ progress {
   .item {
     font-size: 0.85em;
   }
+  .todoHead {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 272px) {
   .inputArea {
@@ -161,5 +172,8 @@ progress {
   button {
     margin-left: 0em;
     font-size: 0.65em;
+  }
+   .todoHead {
+    font-size: 1.5rem;
   }
 }
