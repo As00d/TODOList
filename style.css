@@ -67,6 +67,7 @@ button {
 .inputValue {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .inputArea {
   flex: 4;
@@ -108,9 +109,57 @@ progress {
   color: green;
 }
 .fade {
-   background: linear-gradient(
-      45deg,
-        rgba(196, 195, 195, 0.53),
-      rgba(196, 195, 195, 0.53)
-    )
+  background: linear-gradient(
+    45deg,
+    rgba(196, 195, 195, 0.53),
+    rgba(196, 195, 195, 0.53)
+  );
+}
+
+/* Responsive to-do-list */
+@media screen and (max-width: 1440px) {
+  .toDoList {
+    width: 40%;
+  }
+  button {
+    margin-left: 0.5em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .toDoList {
+    width: 70%;
+  }
+  button {
+    margin-left: 0.5em;
+  }
+}
+@media screen and (max-width: 425px) {
+  .toDoList {
+    width: 80%;
+  }
+  button {
+    margin-left: 0.5em;
+  }
+}
+@media screen and (max-width: 345px) and (min-width: 272px) {
+  .toDoList {
+    width: 80%;
+  }
+  button {
+    margin-top: 0.4rem;
+    margin-left: 0em;
+  }
+  .item {
+    font-size: 0.85em;
+  }
+}
+@media screen and (max-width: 272px) {
+  .inputArea {
+    font-size: 0.65em;
+  }
+  button {
+    margin-left: 0em;
+    font-size: 0.65em;
+  }
 }

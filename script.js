@@ -2,10 +2,11 @@ const addItem = document.querySelector(".addItem");
 const item = document.querySelector(".listItem");
 
 let isTaskDone = false;
-
+let count=0;
 addItem.addEventListener("click", () => {
   const inputData = document.querySelector(".inputArea").value;
   if (inputData) {
+    count++;
     const listItem = document.createElement("div");
     listItem.innerHTML = `<p class="textInput strikeOf">${
       inputData[0].toUpperCase() + inputData.slice(1)
@@ -27,6 +28,7 @@ addItem.addEventListener("click", () => {
       setTimeout(() => {
         listItem.remove();
       }, 200);
+      count--;
     });
 
     // Clearing the input item once item is added to ToDo list
@@ -48,3 +50,4 @@ const printDateAndTime = function() {
  6. To add percentage and progress bar - Initially set to 0% and no progress 
  7. Add some additional peices of data to do list : todays's date, no. of tasks, a simple quote Get things done, one item at a time. 
 */
+console.log(count);
