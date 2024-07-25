@@ -2,29 +2,22 @@ const addItem = document.querySelector(".addItem");
 const item = document.querySelector(".listItem");
 
 let isTaskDone = false;
+
 addItem.addEventListener("click", () => {
   const inputData = document.querySelector(".inputArea").value;
   if (inputData) {
     const listItem = document.createElement("div");
-    listItem.innerHTML = `<p class="textInput">${
+    listItem.innerHTML = `<p class="textInput strikeOf">${
       inputData[0].toUpperCase() + inputData.slice(1)
     }</p> <p><button class="done">✅</button><button class="cancel">❌</button></p>`;
     listItem.classList.add("item");
     item.prepend(listItem);
 
-    // when task is done - bug is detected only the item which is at the top - the first item is selected that gets ticked
-    const done = document.querySelector(".done");
-    done.addEventListener("click", () => {
-      const textInput = document.querySelector(".textInput");
-      if (isTaskDone) {
-        textInput.classList.add("strikeOf");
-        textInput.classList.remove("strikeOn");
-        isTaskDone = false;
-      } else {
-        textInput.classList.add("strikeOn");
-        textInput.classList.remove("strikeOf");
-        isTaskDone = true;
-      }
+    // when task is completed
+    listItem.querySelector(".done").addEventListener("click", function () {
+      const textInput = listItem.querySelector(".textInput");
+      textInput.classList.toggle("strikeOn");
+      textInput.classList.toggle("strikeOf");
     });
 
     // when task is deleted from to do list
@@ -34,6 +27,7 @@ addItem.addEventListener("click", () => {
         listItem.remove();
       }, 200);
     });
+
     // Clearing the input item once item is added to ToDo list
     document.querySelector(".inputArea").value = "";
   }
