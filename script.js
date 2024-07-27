@@ -1,9 +1,12 @@
 const addItem = document.querySelector(".addItem");
 const item = document.querySelector(".listItem");
-
+const inputArea = document.querySelector(".inputArea");
+console.log(inputArea);
 let isTaskDone = false;
-let count=0;
-addItem.addEventListener("click", () => {
+let count = 0;
+
+const handleClickEvent = function () {
+  console.log('button is clicked');
   const inputData = document.querySelector(".inputArea").value;
   if (inputData) {
     count++;
@@ -34,11 +37,18 @@ addItem.addEventListener("click", () => {
     // Clearing the input item once item is added to ToDo list
     document.querySelector(".inputArea").value = "";
   }
+};
+
+addItem.addEventListener("click", handleClickEvent);
+inputArea.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    handleClickEvent();
+  }
 });
 
-const printDateAndTime = function() {
- return new Intl.DateTimeFormat("en-US").format(new Date()); 
-}
+const printDateAndTime = function () {
+  return new Intl.DateTimeFormat("en-US").format(new Date());
+};
 
 // Future features ->
 /*
