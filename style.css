@@ -57,6 +57,18 @@
   font-size: 2.5em;
   text-align: center;
   color: white;
+  width: 90%;
+}
+.operations {
+  display: flex;
+  justify-content: space-between;
+  align-items: end; 
+}
+
+.deleteAllItem {
+  height: 50%;
+  font-size: 0.75em;
+  align-self: flex-end;
 }
 .inputArea,
 button {
@@ -116,7 +128,9 @@ progress {
     rgba(196, 195, 195, 0.53)
   );
 }
-
+.header {
+  display: flex;
+}
 /* Responsive to-do-list */
 @media screen and (max-width: 1440px) {
   .toDoList {
@@ -163,8 +177,11 @@ progress {
     font-size: 0.85em;
   }
   .todoHead {
-    font-size: 2em;
+    font-size: 1.5em;
   }
+  .deleteAllItem {
+  font-size: 0.6rem;
+}
 }
 @media screen and (max-width: 272px) {
   .inputArea {
@@ -175,6 +192,9 @@ progress {
     font-size: 0.65em;
   }
    .todoHead {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
+.deleteAllItem {
+  font-size: 0.5rem;
+}
 }

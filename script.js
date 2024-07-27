@@ -3,10 +3,12 @@ const item = document.querySelector(".listItem");
 const inputArea = document.querySelector(".inputArea");
 const progress = document.querySelector("progress");
 const percentage = document.querySelector(".percentageRate");
+const deleteAllItem = document.querySelector(".deleteAllItem");
 
 let isTaskDone = false;
 let totalTaskCount = 0;
 let taskCompleted = 0;
+
 const printDateAndTime = function () {
   return new Intl.DateTimeFormat("en-US").format(new Date());
 };
@@ -22,8 +24,6 @@ const completionPercentage = function (totalTaskCount, taskCompleted) {
     )}%`;
   }
 };
-
-completionPercentage(totalTaskCount, taskCompleted);
 
 const handleClickEvent = function () {
   const inputData = document.querySelector(".inputArea").value;
@@ -52,7 +52,7 @@ const handleClickEvent = function () {
       }
     });
 
-    // when task is deleted from to do list
+    // when individual task is deleted from to do list
     const cancelButton = document.querySelector(".cancel");
     cancelButton.addEventListener("click", () => {
       setTimeout(() => {
@@ -63,6 +63,17 @@ const handleClickEvent = function () {
         }
       }, 200);
       totalTaskCount--;
+      completionPercentage(totalTaskCount, taskCompleted);
+    });
+
+    // When deleting all the list item
+    deleteAllItem.addEventListener("click", function () {
+      const listItems = document.querySelectorAll(".item");
+      listItems.forEach(function (listItem) {
+        listItem.remove();
+      });
+      totalTaskCount = 0;
+      taskCompleted = 0;
       completionPercentage(totalTaskCount, taskCompleted);
     });
 
@@ -78,13 +89,13 @@ inputArea.addEventListener("keydown", (event) => {
   }
 });
 
+completionPercentage(totalTaskCount, taskCompleted);
+
 // Future features ->
 /*
  1. add search capability to the added list items.
  2. when button is clicked without any input element, throw error message input field is empty
  3. Add a support of choosing background image 
- 4. Add a button to remove all the added list item
-
 */
 
 // Feature supported
@@ -92,6 +103,7 @@ inputArea.addEventListener("keydown", (event) => {
 //  2. add a icon ✅ to the right of added element to strike of the task.
 //  3. add creation date to the to do list item ( to display when this item was added).
 //  4. Dynamically show the percentage based on task completed - say 35% task completed
+//  5. Add a button to remove all the added list item
 
 // Discarded features
 // a simple quote Get things done, one item at a time.
