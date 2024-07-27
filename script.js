@@ -82,8 +82,8 @@ inputArea.addEventListener("keydown", (event) => {
 /*
  1. add search capability to the added list items.
  2. when button is clicked without any input element, throw error message input field is empty
- 3. To add percentage and progress bar - Initially set to 0% and no progress 
- 4. Add some additional peices of data to do list : todays's date, 
+ 3. Add a support of choosing background image 
+ 4. Add a button to remove all the added list item
 
 */
 
@@ -91,7 +91,7 @@ inputArea.addEventListener("keydown", (event) => {
 //  1. add a icon ❌  to right of added element which can allow us to delete the item list.
 //  2. add a icon ✅ to the right of added element to strike of the task.
 //  3. add creation date to the to do list item ( to display when this item was added).
-//  4. updating the task count percentage as per the task count
+//  4. Dynamically show the percentage based on task completed - say 35% task completed
 
 // Discarded features
 // a simple quote Get things done, one item at a time.
