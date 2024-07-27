@@ -1,15 +1,35 @@
 const addItem = document.querySelector(".addItem");
 const item = document.querySelector(".listItem");
 const inputArea = document.querySelector(".inputArea");
-console.log(inputArea);
+const progress = document.querySelector("progress");
+const percentage = document.querySelector(".percentageRate");
+
 let isTaskDone = false;
-let count = 0;
+let totalTaskCount = 0;
+let taskCompleted = 0;
+const printDateAndTime = function () {
+  return new Intl.DateTimeFormat("en-US").format(new Date());
+};
+
+const completionPercentage = function (totalTaskCount, taskCompleted) {
+  if (totalTaskCount === 0) {
+    progress.value = 0;
+    percentage.textContent = `${0}%`;
+  } else {
+    progress.value = Math.round((taskCompleted / totalTaskCount) * 100);
+    percentage.textContent = `${Math.round(
+      (taskCompleted / totalTaskCount) * 100
+    )}%`;
+  }
+};
+
+completionPercentage(totalTaskCount, taskCompleted);
 
 const handleClickEvent = function () {
-  console.log('button is clicked');
   const inputData = document.querySelector(".inputArea").value;
   if (inputData) {
-    count++;
+    totalTaskCount++;
+    completionPercentage(totalTaskCount, taskCompleted);
     const listItem = document.createElement("div");
     listItem.innerHTML = `<p class="textInput strikeOf">${
       inputData[0].toUpperCase() + inputData.slice(1)
@@ -18,11 +38,18 @@ const handleClickEvent = function () {
     item.prepend(listItem);
 
     // when task is completed
+    const textInput = listItem.querySelector(".textInput");
     listItem.querySelector(".done").addEventListener("click", function () {
-      const textInput = listItem.querySelector(".textInput");
       textInput.classList.toggle("strikeOn");
       textInput.classList.toggle("strikeOf");
       listItem.classList.toggle("fade");
+      if (textInput.classList.contains("strikeOn")) {
+        taskCompleted++;
+        completionPercentage(totalTaskCount, taskCompleted);
+      } else {
+        taskCompleted--;
+        completionPercentage(totalTaskCount, taskCompleted);
+      }
     });
 
     // when task is deleted from to do list
@@ -30,8 +57,13 @@ const handleClickEvent = function () {
     cancelButton.addEventListener("click", () => {
       setTimeout(() => {
         listItem.remove();
+        if (textInput.classList.contains("strikeOn")) {
+          taskCompleted--;
+          completionPercentage(totalTaskCount, taskCompleted);
+        }
       }, 200);
-      count--;
+      totalTaskCount--;
+      completionPercentage(totalTaskCount, taskCompleted);
     });
 
     // Clearing the input item once item is added to ToDo list
@@ -46,18 +78,20 @@ inputArea.addEventListener("keydown", (event) => {
   }
 });
 
-const printDateAndTime = function () {
-  return new Intl.DateTimeFormat("en-US").format(new Date());
-};
-
 // Future features ->
 /*
- 1. add a icon ❌  to right of added element which can allow us to delete the item list. - done
- 2. add a icon ✅ to the right of added element to strike of the task. - done
- 3. add search capability to the added list items - (advance but good to know).
- 4. add creation date and time to the to do list item ( to display when this item was added). - done
- 5. when button is clicked without any input element, throw error message input field is empty
- 6. To add percentage and progress bar - Initially set to 0% and no progress 
- 7. Add some additional peices of data to do list : todays's date, no. of tasks, a simple quote Get things done, one item at a time. 
+ 1. add search capability to the added list items.
+ 2. when button is clicked without any input element, throw error message input field is empty
+ 3. To add percentage and progress bar - Initially set to 0% and no progress 
+ 4. Add some additional peices of data to do list : todays's date, 
+
 */
-console.log(count);
+
+// Feature supported
+//  1. add a icon ❌  to right of added element which can allow us to delete the item list.
+//  2. add a icon ✅ to the right of added element to strike of the task.
+//  3. add creation date to the to do list item ( to display when this item was added).
+//  4. updating the task count percentage as per the task count
+
+// Discarded features
+// a simple quote Get things done, one item at a time.
